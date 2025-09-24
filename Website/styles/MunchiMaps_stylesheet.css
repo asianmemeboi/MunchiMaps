@@ -96,18 +96,23 @@ html, body {
     transition: filter 0.2s; /* Add transition for smooth effect */
 }
 
-.help-button{
-
+.top-right-buttons {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 8px; /* space between help and map key */
+  align-items: center;
   z-index: 1000;
+}
+
+.help-button{
   background-color: rgba(255, 255, 255, 0.0); /* Semi-transparent white */
   border: none;
   border-radius: 50px;
   transition: all 0.3s ease; /* Add transition for smooth animation */
-  
-  }
+  padding: 4px;
+}
 
 
 .help-button:hover {
@@ -147,16 +152,18 @@ html, body {
 }
 
 .help-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #fefefe;
-  margin: 15% auto; 
+  margin: 0;
   padding: 20px;
   border: 1px solid #888;
   width: 80%; 
   max-width: 600px; 
   font-family: 'Courier New'; 
   border-radius: 20px;
-
-
 }
 
 .close {
@@ -177,6 +184,14 @@ html, body {
   margin-top: 20px;
 }
 
+.map-key tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.map-key tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
 .icon-item {
   display: flex;
   align-items: center;
@@ -191,20 +206,19 @@ html, body {
 
 /* Map Key Button */
 .map-key-button {
-  position: absolute;
-  top: 5px;
-  right: 80px; /* Adjusted position to avoid overlap with help button */
-  z-index: 1000;
   background-color: rgba(255, 255, 255, 0.0); /* Transparent background */
   border: none;
   border-radius: 50px;
   transition: all 0.3s ease; /* Smooth animation */
+  padding: 4px;
 }
 
 /* Small screens (e.g., mobile) */
 @media screen and (max-width: 600px) {
-  .map-key-button {
-    right: 45px;
+  .top-right-buttons {
+    gap: 6px;
+    right: 6px;
+    top: 6px;
   }
 }
 
@@ -252,8 +266,12 @@ html, body {
 }
 
 .map-key-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #fefefe;
-  margin: 15% auto; 
+  margin: 0; 
   padding: 20px;
   border: 1px solid #888;
   width: 80%; 
